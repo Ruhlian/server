@@ -19,7 +19,7 @@ const ProductoController = {
     // Obtener todos los productos
     getAll: async (req, res) => {
         try {
-            const query = 'SELECT * FROM productos';
+            const query = 'SELECT * FROM Productos';
             connection.query(query, (error, results) => {
                 if (error) {
                     console.error('Error al ejecutar la consulta: ', error);
@@ -37,7 +37,7 @@ const ProductoController = {
     getById: async (req, res) => {
         const { id } = req.params;
         try {
-            const query = 'SELECT * FROM productos WHERE id_producto = ?';
+            const query = 'SELECT * FROM Productos WHERE id_producto = ?';
             connection.query(query, [id], (error, results) => {
                 if (error) {
                     return res.status(500).json({ message: 'Error al obtener producto', error: error.message });
@@ -93,7 +93,7 @@ const ProductoController = {
     getByCategoria: async (req, res) => {
         const { id_categoria } = req.params;
         try {
-            const query = 'SELECT * FROM productos WHERE id_categoria = ?';
+            const query = 'SELECT * FROM Productos WHERE id_categoria = ?';
             connection.query(query, [id_categoria], (error, results) => {
                 if (error) {
                     console.error('Error al ejecutar la consulta: ', error);
